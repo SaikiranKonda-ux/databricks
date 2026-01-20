@@ -23,9 +23,9 @@
 # COMMAND ----------
 
 # Configuration
-CATALOG = "dev_support_ai"
+CATALOG = "ts_dlh_dev_catalog"
 SCHEMA_DATA = "data"
-SCHEMA_AI = "ai_assets"
+SCHEMA_AI = "assets"
 VOLUME_NAME = "kb_docs_volume"
 VECTOR_ENDPOINT = "dev_support_ep"
 VECTOR_INDEX = "kb_vs_index"
@@ -41,9 +41,9 @@ VECTOR_INDEX_FQN = f"{CATALOG}.{SCHEMA_AI}.{VECTOR_INDEX}"
 # MAGIC %md
 # MAGIC ## Step 1: Create Catalog
 # MAGIC
-# MAGIC **Catalog**: `dev_support_ai`
+# MAGIC **Catalog**: `ts_dlh_dev_catalog`
+# MAGIC - Team Standard: ts_dlh (Team Data Lakehouse)
 # MAGIC - Environment: Development
-# MAGIC - Domain: Support AI
 
 # COMMAND ----------
 
@@ -61,7 +61,7 @@ print(f"✅ Catalog created: {CATALOG}")
 # MAGIC
 # MAGIC **Two schemas** (simplified, no medallion architecture):
 # MAGIC 1. `data` - Store tickets and knowledge base
-# MAGIC 2. `ai_assets` - Vector indexes, models, agents, functions, prompts
+# MAGIC 2. `assets` - Vector indexes, models, agents, functions, prompts
 
 # COMMAND ----------
 
@@ -259,15 +259,15 @@ except Exception as e:
 # MAGIC
 # MAGIC | Resource Type | Name | Purpose |
 # MAGIC |--------------|------|---------|
-# MAGIC | **Catalog** | `dev_support_ai` | Root namespace for all AI resources |
-# MAGIC | **Schema** | `dev_support_ai.data` | Tickets and knowledge base storage |
-# MAGIC | **Schema** | `dev_support_ai.ai_assets` | AI models, agents, functions, indexes |
-# MAGIC | **Volume** | `dev_support_ai.data.kb_docs_volume` | PDF/document storage |
-# MAGIC | **Table** | `dev_support_ai.data.tickets` | Support ticket data |
-# MAGIC | **Table** | `dev_support_ai.data.kb_documents` | Knowledge base documents |
-# MAGIC | **Table** | `dev_support_ai.ai_assets.ticket_embeddings` | Embeddings for vector search |
+# MAGIC | **Catalog** | `ts_dlh_dev_catalog` | Root namespace for all AI resources |
+# MAGIC | **Schema** | `ts_dlh_dev_catalog.data` | Tickets and knowledge base storage |
+# MAGIC | **Schema** | `ts_dlh_dev_catalog.assets` | AI models, agents, functions, indexes |
+# MAGIC | **Volume** | `ts_dlh_dev_catalog.data.kb_docs_volume` | PDF/document storage |
+# MAGIC | **Table** | `ts_dlh_dev_catalog.data.tickets` | Support ticket data |
+# MAGIC | **Table** | `ts_dlh_dev_catalog.data.kb_documents` | Knowledge base documents |
+# MAGIC | **Table** | `ts_dlh_dev_catalog.assets.ticket_embeddings` | Embeddings for vector search |
 # MAGIC | **Endpoint** | `dev_support_ep` | Vector Search endpoint (STANDARD) |
-# MAGIC | **Index** | `dev_support_ai.ai_assets.kb_vs_index` | Vector index (created after data load) |
+# MAGIC | **Index** | `ts_dlh_dev_catalog.assets.kb_vs_index` | Vector index (created after data load) |
 
 # COMMAND ----------
 
@@ -303,4 +303,5 @@ print(f"   - Schemas: {SCHEMA_DATA}, {SCHEMA_AI}")
 print(f"   - Tables: 3 (tickets, kb_documents, ticket_embeddings)")
 print(f"   - Volume: {VOLUME_NAME}")
 print(f"   - Vector Endpoint: {VECTOR_ENDPOINT}")
+print(f"\n📁 Volume Path: /Volumes/{CATALOG}/{SCHEMA_DATA}/{VOLUME_NAME}/")
 print(f"\n🚀 Ready for Topic 1: Vector DB")
