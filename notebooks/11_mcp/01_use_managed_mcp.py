@@ -1,4 +1,18 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Topic 6: Model Context Protocol (MCP) - Enterprise Tool Integration
+# MAGIC
+# MAGIC **UI Path**: Workspace → Playground → Add MCP Server (button) → Managed or Custom
+# MAGIC
+# MAGIC **Test MCP**: AI Playground → Tools → Select MCP servers
+# MAGIC
+# MAGIC **Documentation**:
+# MAGIC - [MCP on Databricks](https://docs.databricks.com/aws/en/generative-ai/mcp/)
+# MAGIC - [Managed MCP Servers](https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp)
+# MAGIC - [Host Custom MCP](https://medium.com/@AI-on-Databricks/building-custom-mcp-servers-on-databricks-apps-a-practical-guide-48048480ce62)
+# MAGIC - [GitHub: MCP Server Example](https://github.com/RafaelCartenet/mcp-databricks-server)
+
+# COMMAND ----------
 
 import os
 from databricks_mcp import DatabricksMCPClient

@@ -1,4 +1,17 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Single Agent: Ticket Classifier with RAG
+# MAGIC
+# MAGIC **UI Path**: Workspace → Machine Learning → Experiments → ticket-classifier-agent
+# MAGIC
+# MAGIC **View Traces**: Experiments → ticket-classifier-agent → Traces tab → Timeline view
+# MAGIC
+# MAGIC **Documentation**:
+# MAGIC - [Author AI Agents](https://docs.databricks.com/aws/en/generative-ai/agent-framework/author-agent)
+# MAGIC - [Agent Tutorial](https://docs.databricks.com/aws/en/generative-ai/tutorials/agent-framework-notebook)
+# MAGIC - [Azure: Build Agent](https://learn.microsoft.com/en-us/azure/databricks/generative-ai/tutorials/agent-framework-notebook)
+
+# COMMAND ----------
 
 import mlflow
 import os

@@ -1,4 +1,17 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Topic 3: Agent Tools Registry - Unity Catalog Functions
+# MAGIC
+# MAGIC **UI Path**: Catalog → ts_dlh_dev_catalog → assets → Functions
+# MAGIC
+# MAGIC **View Functions**: Click on function name to see definition, permissions, lineage
+# MAGIC
+# MAGIC **Documentation**:
+# MAGIC - [Unity Catalog UDFs](https://docs.databricks.com/aws/en/udf/unity-catalog)
+# MAGIC - [Create Custom Tools](https://docs.databricks.com/aws/en/generative-ai/agent-framework/create-custom-tool)
+# MAGIC - [Azure: Create Tools](https://learn.microsoft.com/en-us/azure/databricks/generative-ai/agent-framework/create-custom-tool)
+
+# COMMAND ----------
 
 CATALOG = "ts_dlh_dev_catalog"
 SCHEMA_AI = "assets"

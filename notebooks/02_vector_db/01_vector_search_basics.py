@@ -1,4 +1,17 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Topic 1: Vector DB - HNSW Algorithm & Similarity Search
+# MAGIC
+# MAGIC **UI Path**: Workspace → Machine Learning → Vector Search → Endpoints → dev_support_ep
+# MAGIC
+# MAGIC **View Index**: Catalog → ts_dlh_dev_catalog → assets → kb_vs_index
+# MAGIC
+# MAGIC **Documentation**:
+# MAGIC - [Vector Search Overview](https://docs.databricks.com/aws/en/vector-search/vector-search)
+# MAGIC - [Query Vector Index](https://docs.databricks.com/aws/en/vector-search/query-vector-search)
+# MAGIC - [HNSW Algorithm Details](https://community.databricks.com/t5/generative-ai/databricks-vector-search-algorithm/td-p/142623)
+
+# COMMAND ----------
 
 from databricks.vector_search.client import VectorSearchClient
 

@@ -1,4 +1,17 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Topic 2: MLflow Tracing - Observability & Debugging
+# MAGIC
+# MAGIC **UI Path**: Workspace → Machine Learning → Experiments → [Your Experiment] → Traces tab
+# MAGIC
+# MAGIC **View Traces**: MLflow UI → Experiment → Traces → Click Trace ID → Timeline View
+# MAGIC
+# MAGIC **Documentation**:
+# MAGIC - [MLflow Tracing Overview](https://docs.databricks.com/aws/en/mlflow3/genai/tracing/)
+# MAGIC - [View Traces in UI](https://docs.databricks.com/aws/en/mlflow3/genai/tracing/observe-with-traces/ui-traces)
+# MAGIC - [Debug with Tracing](https://docs.databricks.com/aws/en/mlflow3/genai/tracing/observe-with-traces/)
+
+# COMMAND ----------
 
 import mlflow
 from databricks.vector_search.client import VectorSearchClient

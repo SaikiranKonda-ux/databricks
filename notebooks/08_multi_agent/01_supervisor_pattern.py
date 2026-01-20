@@ -1,4 +1,18 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Topic 5: Multi-Agent System - LangGraph Supervisor Pattern
+# MAGIC
+# MAGIC **UI Path**: Workspace → Machine Learning → Experiments → multi-agent-supervisor
+# MAGIC
+# MAGIC **View Traces**: Experiments → multi-agent-supervisor → Traces → See agent communication flow
+# MAGIC
+# MAGIC **Documentation**:
+# MAGIC - [Multi-Agent Supervisor](https://www.databricks.com/blog/multi-agent-supervisor-architecture-orchestrating-enterprise-ai-scale)
+# MAGIC - [Multi-Agent Sales (2026)](https://medium.com/@AI-on-Databricks/multi-ai-powered-sales-support-databricks-with-langchain-gepa-prompt-optimization-8104654bb538)
+# MAGIC - [Use Genie in Multi-Agent](https://docs.databricks.com/aws/en/generative-ai/agent-framework/multi-agent-genie)
+# MAGIC - [LangGraph Tutorial](https://langchain-tutorials.github.io/langgraph-multi-agent-systems-2026/)
+
+# COMMAND ----------
 
 import mlflow
 import os

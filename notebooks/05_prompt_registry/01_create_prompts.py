@@ -1,4 +1,17 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC # Topic 4: Prompt Registry - Management & Versioning
+# MAGIC
+# MAGIC **UI Path**: Workspace → Machine Learning → Experiments → [Experiment] → Prompts tab
+# MAGIC
+# MAGIC **View Prompts**: Catalog → ts_dlh_dev_catalog → assets → Prompts (Functions)
+# MAGIC
+# MAGIC **Documentation**:
+# MAGIC - [Prompt Registry Overview](https://docs.databricks.com/aws/en/mlflow3/genai/prompt-version-mgmt/prompt-registry/)
+# MAGIC - [Create and Edit Prompts](https://docs.databricks.com/aws/en/mlflow3/genai/prompt-version-mgmt/prompt-registry/create-and-edit-prompts)
+# MAGIC - [Use Prompts in Apps](https://docs.databricks.com/aws/en/mlflow3/genai/prompt-version-mgmt/prompt-registry/use-prompts-in-deployed-apps)
+
+# COMMAND ----------
 
 import mlflow
 from mlflow.prompts import register
