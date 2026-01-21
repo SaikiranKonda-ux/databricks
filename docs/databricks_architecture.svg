@@ -1,0 +1,297 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" style="font-family: Arial, sans-serif;">
+  <defs>
+    <style>
+      .title { font-size: 20px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 14px; fill: #666; }
+      .component-title { font-size: 14px; font-weight: bold; fill: #fff; }
+      .property { font-size: 10px; fill: #fff; }
+      .arrow-label { font-size: 10px; fill: #333; font-style: italic; }
+      .property-badge { font-size: 9px; fill: #fff; }
+      .callout-title { font-size: 12px; font-weight: bold; fill: #1a1a1a; }
+      .callout-text { font-size: 10px; fill: #333; }
+      .legend-text { font-size: 11px; fill: #333; }
+
+      .storage { fill: #4A90E2; stroke: #2E5C8A; stroke-width: 2; }
+      .indexing { fill: #7ED321; stroke: #5A9916; stroke-width: 2; }
+      .tools { fill: #F5A623; stroke: #C17D15; stroke-width: 2; }
+      .agents { fill: #FF6B35; stroke: #CC5529; stroke-width: 2; }
+      .llm { fill: #E74C3C; stroke: #B93A2E; stroke-width: 2; }
+      .observability { fill: #9B59B6; stroke: #7A4791; stroke-width: 2; }
+      .governance { fill: none; stroke: #34495E; stroke-width: 3; stroke-dasharray: 10,5; }
+
+      .arrow { stroke: #555; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-thick { stroke: #FF6B35; stroke-width: 3; fill: none; marker-end: url(#arrowhead-orange); }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#555" />
+    </marker>
+
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#FF6B35" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="30" text-anchor="middle" class="title">Databricks AI Components Integration Architecture</text>
+  <text x="700" y="50" text-anchor="middle" class="subtitle">Customer Support Ticket Intelligence System</text>
+
+  <!-- Unity Catalog Governance Overlay -->
+  <rect x="50" y="80" width="1300" height="650" class="governance" rx="10"/>
+  <text x="700" y="100" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #34495E;">Unity Catalog Governance Layer</text>
+  <text x="700" y="118" text-anchor="middle" style="font-size: 10px; fill: #666;">3-level namespace • RBAC • Lineage • Audit logs</text>
+
+  <!-- Storage Layer -->
+  <g id="storage-layer">
+    <!-- Delta Tables -->
+    <rect x="70" y="140" width="180" height="200" class="storage" rx="8"/>
+    <text x="160" y="165" text-anchor="middle" class="component-title">Delta Tables</text>
+
+    <rect x="85" y="175" width="150" height="45" style="fill: #3A7BC8; stroke: none;" rx="4"/>
+    <text x="160" y="192" text-anchor="middle" style="font-size: 11px; fill: #fff; font-weight: bold;">tickets</text>
+    <text x="160" y="205" text-anchor="middle" class="property">CDF=true</text>
+    <text x="160" y="216" text-anchor="middle" class="property">100 rows</text>
+
+    <rect x="85" y="225" width="150" height="45" style="fill: #3A7BC8; stroke: none;" rx="4"/>
+    <text x="160" y="242" text-anchor="middle" style="font-size: 11px; fill: #fff; font-weight: bold;">kb_documents</text>
+    <text x="160" y="255" text-anchor="middle" class="property">CDF=true</text>
+    <text x="160" y="266" text-anchor="middle" class="property">12 rows</text>
+
+    <rect x="85" y="275" width="150" height="45" style="fill: #3A7BC8; stroke: none;" rx="4"/>
+    <text x="160" y="292" text-anchor="middle" style="font-size: 11px; fill: #fff; font-weight: bold;">ticket_embeddings</text>
+    <text x="160" y="305" text-anchor="middle" class="property">CDF=true</text>
+    <text x="160" y="316" text-anchor="middle" class="property">12 rows</text>
+
+    <!-- UC Volume -->
+    <rect x="70" y="360" width="180" height="60" class="storage" rx="8"/>
+    <text x="160" y="385" text-anchor="middle" class="component-title">UC Volume</text>
+    <text x="160" y="400" text-anchor="middle" class="property">kb_docs_volume</text>
+    <text x="160" y="413" text-anchor="middle" class="property">3 text files</text>
+  </g>
+
+  <!-- Indexing Layer -->
+  <g id="indexing-layer">
+    <rect x="300" y="140" width="200" height="150" class="indexing" rx="8"/>
+    <text x="400" y="165" text-anchor="middle" class="component-title">Vector Search</text>
+
+    <rect x="315" y="175" width="170" height="45" style="fill: #6BB61A; stroke: none;" rx="4"/>
+    <text x="400" y="192" text-anchor="middle" style="font-size: 11px; fill: #fff; font-weight: bold;">dev_support_ep</text>
+    <text x="400" y="205" text-anchor="middle" class="property">type=STANDARD</text>
+    <text x="400" y="216" text-anchor="middle" class="property">state=ONLINE</text>
+
+    <rect x="315" y="225" width="170" height="55" style="fill: #6BB61A; stroke: none;" rx="4"/>
+    <text x="400" y="242" text-anchor="middle" style="font-size: 11px; fill: #fff; font-weight: bold;">kb_vs_index</text>
+    <text x="400" y="255" text-anchor="middle" class="property">algorithm=HNSW</text>
+    <text x="400" y="266" text-anchor="middle" class="property">model=bge-large-en</text>
+    <text x="400" y="277" text-anchor="middle" class="property">sync=TRIGGERED</text>
+  </g>
+
+  <!-- Tools Layer -->
+  <g id="tools-layer">
+    <rect x="550" y="140" width="200" height="110" class="tools" rx="8"/>
+    <text x="650" y="165" text-anchor="middle" class="component-title">UC Functions (Tools)</text>
+    <text x="650" y="185" text-anchor="middle" class="property">calculate_priority_score()</text>
+    <text x="650" y="200" text-anchor="middle" class="property">extract_category()</text>
+    <text x="650" y="215" text-anchor="middle" class="property">route_to_team()</text>
+    <text x="650" y="235" text-anchor="middle" style="font-size: 9px; fill: #fff; font-style: italic;">catalog.schema.function</text>
+
+    <rect x="550" y="265" width="200" height="90" class="tools" rx="8"/>
+    <text x="650" y="285" text-anchor="middle" class="component-title">Prompt Registry</text>
+    <text x="650" y="305" text-anchor="middle" class="property">classify_ticket_prompt_v1</text>
+    <text x="650" y="320" text-anchor="middle" class="property">extract_entities_prompt_v1</text>
+    <text x="650" y="335" text-anchor="middle" class="property">generate_solution_prompt_v1</text>
+
+    <rect x="550" y="370" width="200" height="70" class="tools" rx="8"/>
+    <text x="650" y="390" text-anchor="middle" class="component-title">MCP Servers</text>
+    <text x="650" y="410" text-anchor="middle" class="property">Vector Search MCP</text>
+    <text x="650" y="425" text-anchor="middle" class="property">UC Functions MCP</text>
+  </g>
+
+  <!-- Agents Layer -->
+  <g id="agents-layer">
+    <rect x="800" y="140" width="200" height="100" class="agents" rx="8"/>
+    <text x="900" y="165" text-anchor="middle" class="component-title">Single Agent</text>
+    <text x="900" y="185" text-anchor="middle" class="property">Ticket Classifier</text>
+    <text x="900" y="200" text-anchor="middle" class="property">Uses: Vector Search</text>
+    <text x="900" y="215" text-anchor="middle" class="property">Uses: Prompt Registry</text>
+    <text x="900" y="230" text-anchor="middle" class="property">Uses: Azure OpenAI</text>
+
+    <rect x="800" y="255" width="200" height="145" class="agents" rx="8"/>
+    <text x="900" y="275" text-anchor="middle" class="component-title">Multi-Agent (LangGraph)</text>
+
+    <rect x="815" y="285" width="85" height="30" style="fill: #E85A2E; stroke: none;" rx="3"/>
+    <text x="857" y="304" text-anchor="middle" style="font-size: 10px; fill: #fff;">Categorize</text>
+
+    <rect x="915" y="285" width="70" height="30" style="fill: #E85A2E; stroke: none;" rx="3"/>
+    <text x="950" y="304" text-anchor="middle" style="font-size: 10px; fill: #fff;">Prioritize</text>
+
+    <rect x="815" y="320" width="85" height="30" style="fill: #E85A2E; stroke: none;" rx="3"/>
+    <text x="857" y="339" text-anchor="middle" style="font-size: 10px; fill: #fff;">Retrieval</text>
+
+    <rect x="915" y="320" width="70" height="30" style="fill: #E85A2E; stroke: none;" rx="3"/>
+    <text x="950" y="339" text-anchor="middle" style="font-size: 10px; fill: #fff;">Solution</text>
+
+    <text x="900" y="370" text-anchor="middle" class="property">StateGraph • AgentState</text>
+    <text x="900" y="385" text-anchor="middle" class="property">Supervisor Pattern</text>
+  </g>
+
+  <!-- LLM Layer -->
+  <g id="llm-layer">
+    <rect x="1050" y="140" width="150" height="100" class="llm" rx="8"/>
+    <text x="1125" y="165" text-anchor="middle" class="component-title">Azure OpenAI</text>
+    <text x="1125" y="190" text-anchor="middle" class="property">Model: GPT-4</text>
+    <text x="1125" y="205" text-anchor="middle" class="property">API: External</text>
+    <text x="1125" y="220" text-anchor="middle" class="property">Version: 2024-02-01</text>
+  </g>
+
+  <!-- Observability Layer -->
+  <g id="observability-layer">
+    <rect x="1050" y="255" width="150" height="145" class="observability" rx="8"/>
+    <text x="1125" y="280" text-anchor="middle" class="component-title">MLflow Tracing</text>
+
+    <rect x="1065" y="290" width="120" height="30" style="fill: #8847A3; stroke: none;" rx="3"/>
+    <text x="1125" y="309" text-anchor="middle" style="font-size: 10px; fill: #fff;">Experiments</text>
+
+    <rect x="1065" y="325" width="120" height="30" style="fill: #8847A3; stroke: none;" rx="3"/>
+    <text x="1125" y="344" text-anchor="middle" style="font-size: 10px; fill: #fff;">Traces</text>
+
+    <text x="1125" y="370" text-anchor="middle" class="property">OpenTelemetry</text>
+    <text x="1125" y="385" text-anchor="middle" class="property">Timeline View</text>
+  </g>
+
+  <!-- Arrows and Connections -->
+  <!-- Delta to Vector Index -->
+  <path d="M 250 300 L 300 250" class="arrow"/>
+  <rect x="255" y="260" width="50" height="16" style="fill: #fff; stroke: #999; stroke-width: 1;" rx="3"/>
+  <text x="280" y="271" text-anchor="middle" class="property-badge" style="fill: #333;">CDF Sync</text>
+
+  <!-- Vector to Single Agent -->
+  <path d="M 500 190 L 800 190" class="arrow"/>
+  <rect x="620" y="175" width="80" height="16" style="fill: #fff; stroke: #999; stroke-width: 1;" rx="3"/>
+  <text x="660" y="186" text-anchor="middle" class="property-badge" style="fill: #333;">similarity_search()</text>
+
+  <!-- Tools to Agents -->
+  <path d="M 750 190 L 800 190" class="arrow"/>
+  <rect x="755" y="175" width="35" height="16" style="fill: #fff; stroke: #999; stroke-width: 1;" rx="3"/>
+  <text x="772" y="186" text-anchor="middle" class="property-badge" style="fill: #333;">EXECUTE</text>
+
+  <!-- Prompts to Agents -->
+  <path d="M 750 310 L 800 310" class="arrow"/>
+  <rect x="755" y="295" width="35" height="16" style="fill: #fff; stroke: #999; stroke-width: 1;" rx="3"/>
+  <text x="772" y="306" text-anchor="middle" class="property-badge" style="fill: #333;">get_prompt()</text>
+
+  <!-- MCP to Multi-Agent -->
+  <path d="M 750 405 L 800 360" class="arrow"/>
+  <rect x="755" y="375" width="35" height="16" style="fill: #fff; stroke: #999; stroke-width: 1;" rx="3"/>
+  <text x="772" y="386" text-anchor="middle" class="property-badge" style="fill: #333;">MCP</text>
+
+  <!-- Agents to LLM -->
+  <path d="M 1000 190 L 1050 190" class="arrow-thick"/>
+  <rect x="1005" y="175" width="35" height="16" style="fill: #fff; stroke: #FF6B35; stroke-width: 1;" rx="3"/>
+  <text x="1022" y="186" text-anchor="middle" class="property-badge" style="fill: #FF6B35; font-weight: bold;">LLM Call</text>
+
+  <!-- Multi-Agent to LLM -->
+  <path d="M 1000 327 L 1050 210" class="arrow-thick"/>
+
+  <!-- Agents to Tracing -->
+  <path d="M 1000 300 L 1050 310" class="arrow"/>
+  <rect x="1005" y="295" width="35" height="16" style="fill: #fff; stroke: #999; stroke-width: 1;" rx="3"/>
+  <text x="1022" y="306" text-anchor="middle" class="property-badge" style="fill: #333;">@trace</text>
+
+  <!-- Callout Boxes -->
+  <g id="callouts">
+    <!-- Callout 1: CDF Magic -->
+    <rect x="70" y="460" width="280" height="130" style="fill: #F8F9FA; stroke: #4A90E2; stroke-width: 2;" rx="8"/>
+    <text x="210" y="480" text-anchor="middle" class="callout-title">① Change Data Feed Magic</text>
+    <text x="80" y="500" class="callout-text">Delta Table (CDF enabled)</text>
+    <text x="90" y="515" class="callout-text">↓</text>
+    <text x="80" y="530" class="callout-text">Detects: INSERT, UPDATE, DELETE</text>
+    <text x="90" y="545" class="callout-text">↓</text>
+    <text x="80" y="560" class="callout-text">Vector Index syncs incrementally</text>
+    <text x="90" y="575" class="callout-text">↓</text>
+    <text x="80" y="590" class="callout-text" style="font-weight: bold;">Cost savings: Only changed rows embedded</text>
+
+    <!-- Callout 2: Tracing Flow -->
+    <rect x="380" y="460" width="280" height="130" style="fill: #F8F9FA; stroke: #9B59B6; stroke-width: 2;" rx="8"/>
+    <text x="520" y="480" text-anchor="middle" class="callout-title">② MLflow Tracing Flow</text>
+    <text x="390" y="500" class="callout-text">Agent executes → @mlflow.trace</text>
+    <text x="400" y="515" class="callout-text">↓</text>
+    <text x="390" y="530" class="callout-text">Captures: Input, Vector search, LLM,</text>
+    <text x="390" y="545" class="callout-text">Tools, Output, Latency per step</text>
+    <text x="400" y="560" class="callout-text">↓</text>
+    <text x="390" y="575" class="callout-text">Stored in MLflow Experiment</text>
+    <text x="400" y="590" class="callout-text">↓</text>
+    <text x="390" y="605" class="callout-text" style="font-weight: bold;">Visible in Timeline UI (waterfall view)</text>
+
+    <!-- Callout 3: MCP Integration -->
+    <rect x="690" y="460" width="280" height="130" style="fill: #F8F9FA; stroke: #F5A623; stroke-width: 2;" rx="8"/>
+    <text x="830" y="480" text-anchor="middle" class="callout-title">③ MCP Integration</text>
+    <text x="700" y="500" class="callout-text" style="font-weight: bold;">Without MCP:</text>
+    <text x="700" y="515" class="callout-text">→ Manual tool integration per agent</text>
+    <text x="700" y="530" class="callout-text">→ Different APIs for each tool</text>
+    <text x="700" y="545" class="callout-text" style="font-weight: bold;">With MCP:</text>
+    <text x="700" y="560" class="callout-text">→ Standard protocol (plug-and-play)</text>
+    <text x="700" y="575" class="callout-text">→ Multiple tools via one interface</text>
+    <text x="700" y="590" class="callout-text">→ UC permissions enforced automatically</text>
+  </g>
+
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="1000" y="460" width="180" height="140" style="fill: #F8F9FA; stroke: #333; stroke-width: 2;" rx="8"/>
+    <text x="1090" y="480" text-anchor="middle" style="font-size: 13px; font-weight: bold; fill: #333;">Legend</text>
+
+    <rect x="1010" y="490" width="20" height="15" class="storage"/>
+    <text x="1035" y="502" class="legend-text">Storage & Data</text>
+
+    <rect x="1010" y="510" width="20" height="15" class="indexing"/>
+    <text x="1035" y="522" class="legend-text">Indexing & Search</text>
+
+    <rect x="1010" y="530" width="20" height="15" class="tools"/>
+    <text x="1035" y="542" class="legend-text">Tools & Resources</text>
+
+    <rect x="1010" y="550" width="20" height="15" class="agents"/>
+    <text x="1035" y="562" class="legend-text">AI Agents</text>
+
+    <rect x="1010" y="570" width="20" height="15" class="llm"/>
+    <text x="1035" y="582" class="legend-text">External LLM</text>
+
+    <rect x="1010" y="590" width="20" height="15" class="observability"/>
+    <text x="1035" y="602" class="legend-text">Observability</text>
+  </g>
+
+  <!-- Integration Table -->
+  <g id="integration-table">
+    <rect x="70" y="610" width="900" height="100" style="fill: #F8F9FA; stroke: #333; stroke-width: 2;" rx="8"/>
+    <text x="520" y="630" text-anchor="middle" style="font-size: 13px; font-weight: bold; fill: #333;">Key Integration Points: Property → Capability</text>
+
+    <text x="80" y="650" style="font-size: 10px; fill: #333; font-weight: bold;">Component A</text>
+    <text x="200" y="650" style="font-size: 10px; fill: #333; font-weight: bold;">Property</text>
+    <text x="400" y="650" style="font-size: 10px; fill: #333; font-weight: bold;">Component B</text>
+    <text x="600" y="650" style="font-size: 10px; fill: #333; font-weight: bold;">Enables</text>
+
+    <text x="80" y="670" style="font-size: 9px; fill: #333;">Delta Table</text>
+    <text x="200" y="670" style="font-size: 9px; fill: #4A90E2; font-weight: bold;">enableChangeDataFeed=true</text>
+    <text x="400" y="670" style="font-size: 9px; fill: #333;">Vector Index</text>
+    <text x="600" y="670" style="font-size: 9px; fill: #333;">Incremental sync (cost-efficient)</text>
+
+    <text x="80" y="685" style="font-size: 9px; fill: #333;">UC Function</text>
+    <text x="200" y="685" style="font-size: 9px; fill: #F5A623; font-weight: bold;">catalog.schema.function</text>
+    <text x="400" y="685" style="font-size: 9px; fill: #333;">Agent Tools</text>
+    <text x="600" y="685" style="font-size: 9px; fill: #333;">Direct callable from agents</text>
+
+    <text x="80" y="700" style="font-size: 9px; fill: #333;">Agent</text>
+    <text x="200" y="700" style="font-size: 9px; fill: #9B59B6; font-weight: bold;">@mlflow.trace decorator</text>
+    <text x="400" y="700" style="font-size: 9px; fill: #333;">MLflow</text>
+    <text x="600" y="700" style="font-size: 9px; fill: #333;">Automatic observability (zero-config)</text>
+  </g>
+
+  <!-- Catalog Label -->
+  <text x="160" y="130" text-anchor="middle" style="font-size: 11px; font-weight: bold; fill: #34495E;">ts_dlh_dev_catalog</text>
+  <text x="160" y="443" text-anchor="middle" style="font-size: 10px; fill: #666;">Schema: data</text>
+
+  <text x="650" y="130" text-anchor="middle" style="font-size: 11px; font-weight: bold; fill: #34495E;">ts_dlh_dev_catalog</text>
+  <text x="650" y="443" text-anchor="middle" style="font-size: 10px; fill: #666;">Schema: assets</text>
+
+  <!-- Footer -->
+  <text x="700" y="745" text-anchor="middle" style="font-size: 9px; fill: #999;">Data flows left → right | All components governed by Unity Catalog | Orange arrows = Critical LLM path</text>
+</svg>
