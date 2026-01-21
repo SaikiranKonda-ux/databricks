@@ -14,7 +14,6 @@
 # COMMAND ----------
 
 import mlflow
-from mlflow.prompts import register
 
 CATALOG = "ts_dlh_dev_catalog"
 SCHEMA_AI = "assets"
@@ -38,10 +37,10 @@ Output as JSON."""
 
 prompt_name = f"{PROMPT_FQN}.classify_ticket_prompt"
 
-registered_prompt = register(
-    prompt=classify_ticket_prompt,
+registered_prompt = mlflow.genai.register_prompt(
     name=prompt_name,
-    params=["ticket_text"]
+    template=classify_ticket_prompt,
+    commit_message="Initial version for ticket classification"
 )
 
 print(f"Registered: {prompt_name}")
@@ -64,10 +63,10 @@ Output as JSON with keys: customer_id, order_id, error_codes, products, dates.""
 
 prompt_name = f"{PROMPT_FQN}.extract_entities_prompt"
 
-registered_prompt = register(
-    prompt=extract_entities_prompt,
+registered_prompt = mlflow.genai.register_prompt(
     name=prompt_name,
-    params=["ticket_text"]
+    template=extract_entities_prompt,
+    commit_message="Entity extraction prompt"
 )
 
 print(f"Registered: {prompt_name}")
@@ -90,19 +89,17 @@ Keep response concise and professional."""
 
 prompt_name = f"{PROMPT_FQN}.generate_solution_prompt"
 
-registered_prompt = register(
-    prompt=generate_solution_prompt,
+registered_prompt = mlflow.genai.register_prompt(
     name=prompt_name,
-    params=["ticket_text", "category", "kb_content"]
+    template=generate_solution_prompt,
+    commit_message="Solution generation prompt with KB context"
 )
 
 print(f"Registered: {prompt_name}")
 
 # COMMAND ----------
 
-from mlflow.prompts import get_prompt
-
-classify_prompt = get_prompt(f"{PROMPT_FQN}.classify_ticket_prompt")
+classify_prompt = mlflow.genai.get_prompt(f"{PROMPT_FQN}.classify_ticket_prompt")
 
 test_ticket = "My payment failed and I need urgent help"
 formatted = classify_prompt.format(ticket_text=test_ticket)

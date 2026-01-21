@@ -16,7 +16,6 @@
 import mlflow
 import os
 from databricks.vector_search.client import VectorSearchClient
-from mlflow.prompts import get_prompt
 
 CATALOG = "ts_dlh_dev_catalog"
 SCHEMA_DATA = "data"
@@ -48,7 +47,7 @@ def search_kb(query: str, num_results: int = 3) -> str:
 def classify_ticket(ticket_text: str) -> dict:
     kb_content = search_kb(ticket_text, num_results=2)
 
-    prompt_template = get_prompt(f"{CATALOG}.{SCHEMA_AI}.classify_ticket_prompt")
+    prompt_template = mlflow.genai.get_prompt(f"{CATALOG}.{SCHEMA_AI}.classify_ticket_prompt")
     prompt = prompt_template.format(ticket_text=ticket_text)
 
     from openai import AzureOpenAI
