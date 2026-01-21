@@ -1,5 +1,23 @@
 # Strategic Plan: 6 AI Topics Implementation
 
+## ⚠️ Important: Vector Index Setup
+
+**Two approaches available** (see `docs/vector_index_approaches.md` for details):
+
+1. **Managed Embeddings** (`01_load_sample_data.py`): Databricks auto-generates embeddings via background job
+   - May fail with permission errors
+   - Uses Foundation Model API (databricks-bge-large-en)
+   - Best for learning full Databricks workflow
+
+2. **Manual Embeddings** (`02_manual_embeddings_local_model.py`): Compute embeddings in notebook
+   - **Use this if auto-job fails with permissions**
+   - Free open-source model (sentence-transformers)
+   - Runs with notebook cluster permissions
+
+**Recommendation:** Try Approach 1 first. If index creation fails with permissions, use Approach 2.
+
+---
+
 ## Topic Sequence & Dependencies
 
 ```

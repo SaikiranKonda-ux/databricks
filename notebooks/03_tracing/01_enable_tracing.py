@@ -21,7 +21,7 @@ experiment_name = f"/Users/{spark.sql('SELECT current_user()').collect()[0][0]}/
 mlflow.set_experiment(experiment_name)
 
 print(f"MLflow Experiment: {experiment_name}")
-print(f"Tracing enabled: {mlflow.is_tracing_enabled()}")
+print(f"Tracing: Auto-enabled with @mlflow.trace decorator")
 
 # COMMAND ----------
 
