@@ -29,7 +29,7 @@ index = client.get_index(name=VECTOR_INDEX_FQN)
 
 index_info = index.describe()
 print(f"Index: {index_info['name']}")
-print(f"Status: {index_info['status']['state']}")
+print(f"Status: {index_info.get('status', {}).get('state', 'UNKNOWN')}")
 print(f"Endpoint: {index_info['endpoint_name']}")
 print(f"Primary key: {index_info['primary_key']}")
 print(f"Embedding model: {index_info.get('embedding_model_endpoint_name', 'N/A')}")
